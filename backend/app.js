@@ -19,28 +19,13 @@ dotenv.config({ path: "./config/config.env" });
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173",               // for local dev
-  "http://localhost:5174",               // optional
-  process.env.PORTFOLIO_URL,             // frontend prod URL
-  process.env.DASHBOARD_URL              // admin dashboard prod URL
-];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Allow undefined origin for non-browser tools like Postman
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: [process.env.PORTFOLIO_URL, process.env.DASHBOARD_URL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
-
 // ✅ Middleware
 app.use(cookieParser());
 app.use(express.json());
