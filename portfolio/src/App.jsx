@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
+    // The Main file updated
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Router>
         {/* <ModeToggle /> */}
