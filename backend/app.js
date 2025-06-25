@@ -19,13 +19,29 @@ dotenv.config({ path: "./config/config.env" });
 
 const app = express();
 
+const allowedOrigins = [
+  process.env.PORTFOLIO_URL,
+  process.env.DASHBOARD_URL,
+  "http://localhost:5173", // local portfolio
+  "http://localhost:5174", // local dashboard
+  "https://aqkhan-profile.netlify.app", // deployed portfolio
+  "https://aqkhan-dashboard.netlify.app" // deployed dashboard
+];
+
 app.use(
   cors({
-    origin: [process.env.PORTFOLIO_URL, process.env.DASHBOARD_URL],
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
+
 // ✅ Middleware
 app.use(cookieParser());
 app.use(express.json());
