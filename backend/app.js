@@ -19,13 +19,17 @@ dotenv.config({ path: "./config/config.env" });
 
 const app = express();
 
-// ✅ Allowed origins for frontend
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5174"];
+const allowedOrigins = [
+  "http://localhost:5173",               // for local dev
+  "http://localhost:5174",               // optional
+  process.env.PORTFOLIO_URL,             // frontend prod URL
+  process.env.DASHBOARD_URL              // admin dashboard prod URL
+];
 
-// ✅ CORS middleware
 app.use(
   cors({
     origin: function (origin, callback) {
+      // Allow undefined origin for non-browser tools like Postman
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
