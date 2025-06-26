@@ -134,7 +134,7 @@ const Hero = () => {
           <img
             src={
               user.avatar?.url ||
-              "https://via.placeholder.com/400x500.png?text=Profile+Image"
+              "https://placehold.co/400x500?text=Profile+Image"
             }
             alt="Profile"
             className="w-full h-full object-cover"

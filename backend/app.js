@@ -21,7 +21,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "http://localhost:5174",
+  "http://localhost:5174/login",
   "https://abdul-qadeer-buriro.netlify.app",
   "https://aqkhan-dashboard-110.netlify.app",
   process.env.PORTFOLIO_URL,
