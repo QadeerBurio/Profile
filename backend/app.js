@@ -20,6 +20,10 @@ dotenv.config({ path: "./config/config.env" });
 const app = express();
 
 const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "https://abdul-qadeer-buriro.netlify.app",
+  "https://aqkhan-dashboard-110.netlify.app",
   process.env.PORTFOLIO_URL,
   process.env.DASHBOARD_URL,
 ];
@@ -27,15 +31,16 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
+      // Allow requests with no origin (like Postman or SSR)
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        console.warn("Blocked by CORS:", origin); // Optional: log blocked origins
+        console.warn("Blocked by CORS:", origin);
         callback(new Error("Not allowed by CORS"));
       }
     },
-    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
