@@ -22,7 +22,10 @@ const app = express();
 const allowedOrigins = [
   process.env.PORTFOLIO_URL,
   process.env.DASHBOARD_URL,
- 
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "https://abdul-qadeer-buriro.netlify.app",
+  "https://aqkhan-dashboard-110.netlify.app",
 ];
 
 app.use(
@@ -31,6 +34,7 @@ app.use(
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.warn("Blocked by CORS:", origin); // Optional: log blocked origins
         callback(new Error("Not allowed by CORS"));
       }
     },
@@ -38,6 +42,7 @@ app.use(
     credentials: true,
   })
 );
+
 
 // ✅ Middleware
 app.use(cookieParser());
