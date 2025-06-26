@@ -57,7 +57,7 @@ export const getAllMessages = () => async (dispatch) => {
   dispatch(messageSlice.actions.getAllMessagesRequest());
   try {
     const response = await axios.get(
-      "https://portfolio-aq-25d3.up.railway.app/api/v1/message/getall",
+      "http://localhost:3000/api/v1/message/getall",
       { withCredentials: true }
     );
     dispatch(

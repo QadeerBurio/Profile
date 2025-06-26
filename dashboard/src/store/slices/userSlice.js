@@ -112,11 +112,12 @@ const userSlice = createSlice({
 export const login = (email, password) => async (dispatch) => {
   dispatch(userSlice.actions.loginRequest());
   try {
-    const { data } = await axios.post(
-  "https://portfolio-aq-25d3.up.railway.app/api/v1/user/login",
-  { email, password },
-  { withCredentials: true, headers: { "Content-Type": "application/json" } }
-);
+    const { data } = await axios.post("https://portfolio-aq-25d3.up.railway.app/api/v1/user/login", {
+  email, password
+}, {
+  withCredentials: true,
+  headers: { "Content-Type": "application/json" }
+});
     dispatch(userSlice.actions.loginSuccess(data.user));
     dispatch(userSlice.actions.clearAllErrors());
   } catch (error) {
