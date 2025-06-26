@@ -28,6 +28,7 @@ const allowedOrigins = [
   process.env.DASHBOARD_URL,
 ];
 
+
 app.use(
   cors({
     origin: function (origin, callback) {
