@@ -23,7 +23,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174/login",
   "https://abdul-qadeer-buriro.netlify.app",
-  "https://aqkhan-dashboard-110.netlify.app",
+  "https://profile-nine-kappa-36.vercel.app/login",
   process.env.PORTFOLIO_URL,
   process.env.DASHBOARD_URL,
 ];
