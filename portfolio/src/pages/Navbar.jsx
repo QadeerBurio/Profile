@@ -8,7 +8,7 @@ const sections = [
   { id: "services", label: "Services" }, // ✅ Added here
   { id: "skills", label: "Skills" },
   { id: "portfolio", label: "Portfolio" },
-  { id: "myapps", label: "Apps" },
+  { id: "myapps", label: "Certification" },
   { id: "contact", label: "Contact" },
 ];
 
