@@ -17,5 +17,5 @@ jobs:
       - name: Notify Vercel
         uses: vercel/repository-dispatch/actions/status@v1
         with:
-          name: "Vercel - profile-drx7: lint"
+          name: Vercel - profile-drx7: lint
           sha: ${{ github.sha }}
