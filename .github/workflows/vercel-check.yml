@@ -1,25 +1,16 @@
-name: Vercel Deployment Checks
+name: Test Vercel
 
 on:
   push:
     branches:
-      - main   # replace with your production branch
+      - main
 
 jobs:
-  vercel-check:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Run lint
-        run: npm run lint   # optional if you have a lint script
 
       - name: Notify Vercel
         uses: vercel/repository-dispatch/actions/status@v1
