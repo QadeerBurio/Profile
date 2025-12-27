@@ -1,0 +1,28 @@
+name: Vercel Deployment Checks
+
+on:
+  push:
+    branches:
+      - main   # replace with your production branch
+
+jobs:
+  vercel-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Run lint
+        run: npm run lint   # optional if you have a lint script
+
+      - name: Notify Vercel
+        uses: vercel/repository-dispatch/actions/status@v1
+        with:
+          name: Vercel - profile-drx7: lint
+          sha: ${{ github.sha }}
