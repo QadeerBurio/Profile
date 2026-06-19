@@ -20,7 +20,7 @@ const ProjectView = () => {
   useEffect(() => {
     const getProject = async () => {
       try {
-        const { data } = await axios.get(`https://portfolio-aq-25d3.up.railway.app/api/v1/project/get/${id}`, {
+        const { data } = await axios.get(`https://profile-production-1359.up.railway.app/api/v1/project/get/${id}`, {
           withCredentials: true,
         });
         const project = data.project;

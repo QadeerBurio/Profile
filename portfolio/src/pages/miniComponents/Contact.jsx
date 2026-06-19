@@ -16,7 +16,7 @@ const Contact = () => {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        "https://portfolio-aq-25d3.up.railway.app/api/v1/message/send",
+        "https://profile-production-1359.up.railway.app/api/v1/message/send",
         { senderName, subject, message },
         {
           withCredentials: true,
